@@ -1,7 +1,7 @@
 class Solution {
     public int missingNumber(int[] nums) {
         // i am using the cycle sort [o,n]
-        int i =0;
+       /* int i =0;
         while(i<nums.length)
         {
             int correct = nums[i];
@@ -24,6 +24,16 @@ class Solution {
                    return index;
                 }
             } 
-            return nums.length;
+            return nums.length;*/
+// lets us do with bit manipulation 
+
+        int xor = nums.length;
+
+        for (int i = 0; i < nums.length; i++) {
+            xor ^= i;
+            xor ^= nums[i];
+        }
+
+        return xor;
     }
 }
